@@ -10,27 +10,6 @@ The goals / steps of this project are the following:
 * Reflect on your work in a written report
 
 
-[//]: # (Image References)
-
-[image1]: ./examples/grayscale.jpg "Grayscale"
-[gray_image]: ./examples/gray_image.jpg "gray_image"
-[blur_image]: ./examples/blur_image.jpg "blur_image"
-[edges]: ./examples/edges.jpg "edges"
-[masked_edges]: ./examples/masked_edges.jpg "masked_edges"
-[line_img]: ./examples/line_img.jpg "line_img"
-[lane_lines]: ./examples/lane_lines.jpg "lane_lines"
-[roi]: ./examples/roi.jpg "roi"
-[rio_with_dash]: ./examples/rio_with_dash.jpg "rio_with_dash."
-[hough_line_on_origin]: ./examples/hough_line_on_origin.jpg "hough_line_on_origin."
-[hough_lines]: ./examples/hough_lines.jpg "hough_lines."
-[hough_line_slope]: ./examples/hough_line_slope.jpg "hough_line_slope."
-[polyfit]: ./examples/polyfit.jpg "polyfit." 
-[test_image_after]: ./examples/test_image_after.jpg "test_image_after"
-[solidWhiteRight]: ./examples/solidWhiteRight.gif "solidWhiteRight"
-[solidYellowLeft]: ./examples/solidYellowLeft.gif "solidYellowLeft"
-[challenge]: ./examples/challenge.gif "challenge"
----
-
 ##Reflection
 
 ### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
@@ -38,17 +17,17 @@ The goals / steps of this project are the following:
 ### 1.1 My pipeline consisted of 5 steps. 
 
 1. tansfrom color image to gray scale image then using gaussian blur to smooth the gray image
- ![][blur_image]
+ ![](./examples/blur_image.jpg)
  
 1. using canny to detect edges
-![][edges]
+ ![](./examples/edges.jpg)
 1. set 4 vertices of our interest region and using this region as a mask to rule out the non-related lines.
-![][rio_with_dash]
+ ![](./examples/rio_with_dash.jpg)
 3. apply hough transform to detect the line segment 
-![][hough_lines]
+ ![](./examples/hough_lines.jpg)
 4. Draw hough lines on the original image.
-![][hough_line_on_origin]
-
+ ![](./examples/hough_line_on_origin.jpg)
+ 
 ### 1.2 In order to draw a single line on the left and right lanes, I defined another function to draw the final lane lines called draw_lane_lines() function :
 
 1. For each line in the set of hough line segments, calculate the slope and only keep the line segments whoes absolute value of slope is between 0.4~1(marked as blue and green) and drop those slope outside the threshold(marked as red) 
@@ -58,14 +37,14 @@ The goals / steps of this project are the following:
 3. Apply linear regression to all the points in each group to get two lines(np.polyfit returns the slope and intercept of each line)
 ([figure 2-2]())
 4. the farest points in the two lines is considering at the top of rio and the closest point is at the bottom of rio
-5. Draw the lane lines by using the slope,intercept,bottomY and topY ([figure 2-3]())
+5. Draw the lane lines by using the slope,intercept,bottomY and topY ([figure 2-3]())    
 
+-----
+ ![](./examples/hough_line_slope.jpg)
+
+ ![](./examples/polyfit.jpg)
  
-![figure 2-1][hough_line_slope] 
-
-![figure 2-2][polyfit] 
-
-![figure 2-3][lane_lines] 
+ ![](./examples/lane_lines.jpg)
 
 
 ### 2. Identify potential shortcomings with your current pipeline
@@ -102,11 +81,11 @@ def draw_test_images():
     
 draw_test_images()
 ```
-![][test_image_after]
+![](./examples/test_image_after.jpg)
 ###2. apply pipeline to test vedios
 #### Test on solidWhiteRight.mp4
-![][solidWhiteRight]
+![](./examples/solidWhiteRight.gif)
 #### Test on solidYellowLeft.mp4
-![][solidYellowLeft]
+![](./examples/solidYellowLeft.gif)
 #### Test on challenge.mp4 (fail)
-![][challenge]
+![](./examples/challenge.gif)
