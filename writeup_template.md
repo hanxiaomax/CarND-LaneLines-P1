@@ -27,7 +27,7 @@ The goals / steps of this project are the following:
 [hough_line_on_origin]: ./examples/hough_line_on_origin.jpg "hough_line_on_origin."
 [hough_lines]: ./examples/hough_lines.jpg "hough_lines."
 [hough_line_slope]: ./examples/hough_line_slope.jpg "hough_line_slope."
-[polyfit]: ./examples/polyfit.jpg "polyfit."
+[polyfit]: ./examples/polyfit.jpg "polyfit." 
 
 ---
 
