@@ -1,9 +1,10 @@
 # Writeup
 
 
--  [Writeup documents](https://github.com/hanxiaomax/CarND-LaneLines-P1/blob/master/writeup_template.md)
+- [Writeup documents](https://github.com/hanxiaomax/CarND-LaneLines-P1/blob/master/writeup_template.md)
 
-- Result:
+- Result:  
+
 ![](./examples/solidWhiteRight.gif)
 
 # **Finding Lane Lines on the Road** 
