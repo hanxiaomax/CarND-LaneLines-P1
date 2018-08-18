@@ -2,6 +2,7 @@
 
 
 - [Writeup documents](https://github.com/hanxiaomax/CarND-LaneLines-P1/blob/master/writeup_template.md)
+- [Html notebook](https://github.com/hanxiaomax/CarND-LaneLines-P1/blob/master/P1-code.html)
 
 - Result:  
 
