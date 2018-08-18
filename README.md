@@ -1,4 +1,13 @@
+# Writeup
+
+
+-  [Writeup documents](https://github.com/hanxiaomax/CarND-LaneLines-P1/blob/master/writeup_template.md)
+
+- Result:
+![](./examples/solidWhiteRight.gif)
+
 # **Finding Lane Lines on the Road** 
+
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
 <img src="examples/laneLines_thirdPass.jpg" width="480" alt="Combined Image" />
@@ -16,6 +25,8 @@ To meet specifications in the project, take a look at the requirements in the [p
 
 
 Creating a Great Writeup
+
+
 ---
 For this project, a great writeup should provide a detailed response to the "Reflection" section of the [project rubric](https://review.udacity.com/#!/rubrics/322/view). There are three parts to the reflection:
 
