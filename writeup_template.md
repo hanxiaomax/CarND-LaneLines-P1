@@ -25,7 +25,7 @@ The goals / steps of this project are the following:
 1. apply hough transform to detect the line segment   
  ![](./examples/hough_lines.jpg)   
 1. Draw hough lines on the original image.  
- ![](./examples/hough_line_on_origin.jpg)  
+ ![](./examples/hough_line_on_origin.jpg)
  
 ### 1.2 In order to draw a single line on the left and right lanes, I defined another function to draw the final lane lines called draw_lane_lines() function :
 
@@ -81,6 +81,7 @@ def draw_test_images():
 draw_test_images()
 ```
 ![](./examples/test_image_after.jpg)
+
 ### 2. apply pipeline to test vedios
 #### Test on solidWhiteRight.mp4
 ![](./examples/solidWhiteRight.gif)
