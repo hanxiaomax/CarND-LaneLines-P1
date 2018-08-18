@@ -1,8 +1,5 @@
 # **Finding Lane Lines on the Road** 
 
-## Writeup Template
-
-### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
 
 ---
 
@@ -28,10 +25,13 @@ The goals / steps of this project are the following:
 [hough_lines]: ./examples/hough_lines.jpg "hough_lines."
 [hough_line_slope]: ./examples/hough_line_slope.jpg "hough_line_slope."
 [polyfit]: ./examples/polyfit.jpg "polyfit." 
-
+[test_image_after]: ./examples/test_image_after.jpg "test_image_after"
+[solidWhiteRight]: ./examples/solidWhiteRight.gif "solidWhiteRight"
+[solidYellowLeft]: ./examples/solidYellowLeft.gif "solidYellowLeft"
+[challenge]: ./examples/challenge.gif "challenge"
 ---
 
-### Reflection
+##Reflection
 
 ### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
@@ -58,7 +58,7 @@ The goals / steps of this project are the following:
 3. Apply linear regression to all the points in each group to get two lines(np.polyfit returns the slope and intercept of each line)
 ([figure 2-2]())
 4. the farest points in the two lines is considering at the top of rio and the closest point is at the bottom of rio
-5. Draw the lane lines by using the slope,intercept,bottomY and topY
+5. Draw the lane lines by using the slope,intercept,bottomY and topY ([figure 2-3]())
 
  
 ![figure 2-1][hough_line_slope] 
@@ -82,3 +82,31 @@ A possible improvement would be to figure out how to detect the curved line
 Another potential improvement could be to try to eliminate  influence of the light condition
 I also want to try to apply low-pass filter to the lane lines to eliminate the jittering
 
+
+## Result
+###1. apple pipeline to all the test images
+```python
+test_images/solidYellowCurve.jpg
+test_images/solidYellowLeft.jpg
+test_images/solidYellowCurve2.jpg
+test_images/solidWhiteRight.jpg
+test_images/whiteCarLaneSwitch.jpg
+test_images/solidWhiteCurve.jpg
+
+def draw_test_images():
+    check_images = []
+    for img in images :
+        _img = mpimg.imread("test_images/"+img)
+        check_images.append({"test_images/"+img : _pipeline(_img)})
+    draw_imgs(check_images)
+    
+draw_test_images()
+```
+![][test_image_after]
+###2. apply pipeline to test vedios
+#### Test on solidWhiteRight.mp4
+![][solidWhiteRight]
+#### Test on solidYellowLeft.mp4
+![][solidYellowLeft]
+#### Test on challenge.mp4 (fail)
+![][challenge]
