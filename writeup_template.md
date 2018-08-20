@@ -86,18 +86,30 @@ draw_test_images()
 ### 2. apply pipeline to test vedios
 #### Test on solidWhiteRight.mp4
 *without priors info*
+
 ![](./examples/solidWhiteRight_nocache.gif) 
+
 *with priors info*
+
 ![](./examples/solidWhiteRight.gif)
+
 #### Test on solidYellowLeft.mp4
 *without priors info*
+
 ![](./examples/solidYellowLeft_nocache.gif)
+
 *with  priors info*
+
 ![](./examples/solidYellowLeft.gif)
+
 #### Test on challenge.mp4 (fail)
+
 *without priors info*
+
 ![](./examples/challenge_nocache.gif)
+
 *with  priors info*
+
 ![](./examples/challenge.gif)
 
 ### 3. improvements
