@@ -61,6 +61,7 @@ The goals / steps of this project are the following:
 - I also want to try to apply low-pass filter to the lane lines to eliminate the jittering
 
 
+
 ## Result
 ### 1. apple pipeline to all the test images
 ```python
@@ -84,8 +85,52 @@ draw_test_images()
 
 ### 2. apply pipeline to test vedios
 #### Test on solidWhiteRight.mp4
+*without priors info*
+![](./examples/solidWhiteRight_nocache.gif) 
+*with priors info*
 ![](./examples/solidWhiteRight.gif)
 #### Test on solidYellowLeft.mp4
+*without priors info*
+![](./examples/solidYellowLeft_nocache.gif)
+*with  priors info*
 ![](./examples/solidYellowLeft.gif)
 #### Test on challenge.mp4 (fail)
+*without priors info*
+![](./examples/challenge_nocache.gif)
+*with  priors info*
 ![](./examples/challenge.gif)
+
+### 3. improvements
+in order to add some priors informations to the pipeline,I introduced python's deque.
+
+- if there is a valid line , append its [m,b] to deque
+- draw the lane lines by using the average of lines information in pervious frames
+
+by doing this , the lane lines can be much more stable as you can see in the pic above. and it can also deal with the situation when hough transform failed to detect line
+
+```python
+MAX_FRAME_NUM = 6 # max priors line cache numbers 
+
+left_line_queue = deque(maxlen=MAX_FRAME_NUM) # priors left line cache 
+right_line_queue = deque(maxlen=MAX_FRAME_NUM) # priors right line cache 
+```
+
+```python
+
+def draw_lane_lines(img, lines, color=[255,30, 0], thickness=12,size=(28,16)):
+    
+    ......
+   
+    if len(left_y) > 0 and len(left_y) > 0:
+        z1 = np.polyfit(left_y,left_x,1)
+        left_line_queue.append(z1) 
+        
+    # if we get a valid line , do polyfit and append it to the cache
+    if len(right_y) > 0 and len(right_y) > 0:
+        z2 = np.polyfit(right_y,right_x,1)
+        right_line_queue.append(z2)
+        
+    
+    left_ave_z = get_ave_z(left_line_queue)
+    right_ave_z = get_ave_z(right_line_queue)
+```
